@@ -5,6 +5,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.model.Car;
+import web.service.CarService;
 import web.service.CarServiseImpl;
 
 import java.util.ArrayList;
@@ -21,8 +22,8 @@ public class CarController {
         carsList.add(new Car("ZAZ", "Chance", 2007));
         carsList.add(new Car("GAZ", "Vector", 2020));
         carsList.add(new Car("Ford", "Mustang", 1965));
-        CarServiseImpl carServise = new CarServiseImpl();
-        List<Car> newCarList = carServise.returnCars(carsList,count);
+        CarService carService = new CarServiseImpl();
+        List<Car> newCarList = carService.returnCars(carsList,count);
         model.addAttribute("newCarList", newCarList);
         return "car";
     }
