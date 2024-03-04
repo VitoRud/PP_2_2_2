@@ -7,9 +7,23 @@
 </head>
 <body>
 <div>
-    <th:block th:each="msg : ${newCarList}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th scope="col">Brand</th>
+            <th scope="col">Model</th>
+            <th scope="col">Year</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${newCarList}">
+            <td th:text="${car.getBrand()}"/>
+            <td th:text="${car.getModel()}"/>
+            <td th:text="${car.getYear()}"/>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
